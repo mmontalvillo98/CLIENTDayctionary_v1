@@ -1,0 +1,8 @@
+/* timeline */
+audio::-webkit-media-controls-timeline,
+video::-webkit-media-controls-timeline,
+/* duration */
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    display: none;
+}

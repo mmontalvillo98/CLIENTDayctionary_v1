@@ -1,0 +1,28 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push" class="w-25 m-w-25">
+        <div class="row">
+            <button mat-icon-button (click)="sidenav.close()">
+                <mat-icon>person</mat-icon>
+            </button>
+            <h1 class="text-center spacer">USER</h1>
+            <button mat-icon-button (click)="sidenav.close()">
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+        <layout-user></layout-user>
+    </mat-sidenav>
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>person</mat-icon>
+        </button>
+        <layout-tab-menu class="spacer"></layout-tab-menu>
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>logout</mat-icon>
+        </button>
+    </mat-toolbar>
+    <div>
+        <layout-header [game]="game" [word]="todayWord"></layout-header>
+        <router-outlet></router-outlet><!--(activate)="onActive($event)"-->
+        <layout-footer></layout-footer>
+    </div>
+</mat-sidenav-container>

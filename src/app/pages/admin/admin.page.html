@@ -1,0 +1,37 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-toolbar>
+            <button mat-icon-button class="example-icon placeholder" aria-label="Example icon-button with menu icon" disabled>
+                <mat-icon></mat-icon>
+            </button>
+            <span>Games</span>
+            <span class="spacer"></span>
+            <button  mat-icon-button [disabled]="game!==null" (click)="build()">
+                <mat-icon>build</mat-icon>
+            </button>
+            <button mat-icon-button [disabled]="!gameIsNew" (click)="other()">
+                <mat-icon>thumb_down</mat-icon>
+            </button>
+            <button mat-icon-button [disabled]="!gameIsNew" (click)="save()">
+                <mat-icon>favorite</mat-icon>
+            </button>
+        </mat-toolbar>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+        <div class="row row-full row-responsive">
+            <mat-form-field>
+                <mat-label>Word</mat-label>
+                <input type="text" matInput [formControl]="wordPicker">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="datePicker" (dateChange)="onChangeDate()">
+                <!-- <mat-hint>MM/DD/YYYY</mat-hint> -->
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <admin-game-form *ngIf="game!==null" [game]="game" [editable]="gameIsNew"></admin-game-form>
+    </mat-card-content>
+</mat-card>

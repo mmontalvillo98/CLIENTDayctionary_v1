@@ -1,0 +1,396 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$black: (
+    50 : #e0e0e0,
+    100 : #b3b3b3,
+    200 : #808080,
+    300 : #4d4d4d,
+    400 : #262626,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #a6a6a6,
+    A200 : #8c8c8c,
+    A400 : #737373,
+    A700 : #666666,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$white: (
+    50 : #ffffff,
+    100 : #ffffff,
+    200 : #ffffff,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+$green: (
+    50 : #ebf2f0,
+    100 : #ccdfd9,
+    200 : #abcabf,
+    300 : #89b4a5,
+    400 : #6fa492,
+    500 : #56947f,
+    600 : #4f8c77,
+    700 : #45816c,
+    800 : #3c7762,
+    900 : #2b654f,
+    A100 : #adffdf,
+    A200 : #7affcb,
+    A400 : #47ffb7,
+    A700 : #2effad,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$pink: (
+    50 : #f7eef2,
+    100 : #ecd5df,
+    200 : #dfb9ca,
+    300 : #d29db4,
+    400 : #c888a4,
+    500 : #be7394,
+    600 : #b86b8c,
+    700 : #af6081,
+    800 : #a75677,
+    900 : #994365,
+    A100 : #fff0f5,
+    A200 : #ffbdd6,
+    A400 : #ff8ab6,
+    A700 : #ff70a6,
+    contrast: (50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+// $MyClient-primary: mat.define-palette(mat.$indigo-palette);
+$MyClient-primary: mat.define-palette($white);
+// $MyClient-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$MyClient-accent: mat.define-palette($white);
+
+// The warn palette is optional (defaults to red).
+$MyClient-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$MyClient-theme: mat.define-dark-theme((color: (primary: $MyClient-primary,
+                accent: $MyClient-accent,
+                warn: $MyClient-warn,
+            )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($MyClient-theme);
+/* You can add global styles to this file, and also import other style files */
+
+
+/* SWEET ALERT */
+@import '@sweetalert2/theme-dark/dark.scss';
+
+.swal2-confirm.swal2-styled {
+    color: #fff;
+    background-color: grey;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.swal2-cancel.swal2-styled {
+    color: #000;
+    background-color: #fff;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.swal2-popup .swal2-styled:focus,
+.swal2-input:focus {
+    box-shadow: none !important;
+}
+
+.swal-button:focus,
+.swal2-input:focus {
+    box-shadow: none;
+}
+
+.swal2-input {
+    border: 0px !important;
+}
+
+.swal2-icon.swal2-success,
+.swal2-icon.swal2-question,
+.swal2-icon.swal2-warning,
+.swal2-icon.swal2-error {
+    border-color: #fff !important;
+    color: #fff !important;
+}
+
+.swal2-x-mark-line-left,
+.swal2-x-mark-line-right,
+.swal2-success-line-tip,
+.swal2-success-line-long {
+    background-color: #fff !important;
+}
+
+
+
+/* ANIMATE.CSS */
+@import 'animate.css';
+
+/* MATERIAL */
+.mdc-tab__text-label>mat-icon {
+    display: none;
+}
+
+@media (max-width: 30em) {
+    .mdc-tab__text-label>mat-icon {
+        display: block;
+    }
+
+    .mdc-tab__text-label>span {
+        display: none;
+    }
+
+    .mat-mdc-tab-link {
+        min-width: 5px !important;
+    }
+
+    .mat-toolbar>.placeholder,
+    .mat-toolbar>span {
+        display: none;
+    }
+
+    .mat-toolbar {
+        display: flex;
+    }
+
+    .mat-toolbar>* {
+        flex: 1;
+    }
+}
+
+.mdc-tab {
+    padding: 0 !important;
+}
+
+:host::ng-deep.mat-tab-label,
+:host::ng-deep.mat-tab-label-active,
+::ng-deep.mat-tab-link {
+    min-width: 0 !important;
+    padding: 3px !important;
+    margin: 3px !important;
+}
+
+/* STYLES */
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.row-full>* {
+    flex-grow: 1;
+}
+
+.row-space-evenly {
+    justify-content: space-evenly;
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.w-25 {
+    width: 25%
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.m-w-25 {
+    min-width: 250px;
+}
+
+.t-a-right {
+    text-align: right;
+}
+
+.border {
+    border: 1px solid black;
+}
+
+.sidenav-head-button {
+    position: absolute;
+}
+
+.text-center {
+    display: block;
+    text-align: center;
+}
+
+.centered {
+    /*ToDo: Revisar que no se use estoy y row*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.right {
+    justify-content: flex-end;
+}
+
+.card {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.correct {
+    border: 1px solid;
+}
+
+mat-card.post-it {
+    background-color: #FFFF99;
+}
+
+mat-card.post-it>card-header {
+    background-color: #EEEE99;
+}
+
+mat-selection-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.footer {
+    margin: 20px 0;
+}
+
+.interactuable {
+    cursor: pointer;
+}
+
+@media (max-width: 30em) {
+    .row-responsive {
+        flex-direction: column;
+    }
+    .row-responsive > * {
+        width: 100%;
+    }
+}

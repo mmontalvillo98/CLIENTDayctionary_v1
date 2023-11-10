@@ -1,0 +1,7 @@
+<div class="row centered">
+    <span *ngIf="answeredGame">
+        {{phoneticOption.word}}
+    </span>
+    <span class="spacer"></span>
+    <phonetic-audio [audio]="phoneticOption.phonetic.audio"/>
+</div>
